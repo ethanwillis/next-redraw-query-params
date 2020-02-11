@@ -15,7 +15,13 @@ function IncrementQueryParamCountButton() {
     Everytime the count is updated, update the query param for count.
   */
   useEffect(() => {
-    const newQueryParams = ['count', count]
+    const queryParams = {'count': count}
+
+    const newQueryParams = new URLSearchParams(location.search);
+    Object.entries(queryParams).forEach(([key, value]) => {
+      newQueryParams.set(encodeURIComponent(key), encodeURIComponent(value));
+    });
+
 
     router.replace(
       {

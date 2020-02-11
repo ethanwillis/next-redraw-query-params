@@ -23,11 +23,8 @@ function IncrementQueryParamCountButton() {
     });
 
 
-    router.replace(
-      {
-        pathname: router.pathname,
-        query: Object.fromEntries(newQueryParams.entries())
-      },
+    router.push(
+      `/`,
       `${window.location.pathname}?${newQueryParams.toString()}`,
       { shallow: true }
     )

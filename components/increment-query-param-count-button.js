@@ -29,7 +29,7 @@ function IncrementQueryParamCountButton() {
         query: Object.fromEntries(newQueryParams.entries())
       },
       `${window.location.pathname}?${newQueryParams.toString()}`,
-      { shallow: true }
+      { shallow: true, shouldNotRedraw: true }
     )
   }, [count])
 
